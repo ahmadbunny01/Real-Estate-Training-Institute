@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+    <title>PREI - Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/dashboard.css" />
+  </head>
+
+  <body>
+    <div class="main-wrapper">
+      <div class="header">
+        <div class="header-left">
+          <a href="/dashboard" class="logo">
+            <img
+              src="/images/logo.png"
+              width="35"
+              height="35"
+              alt="PREI - Pakistan Real Estate Institute"
+            />
+            <span>Dashboard</span>
+          </a>
+        </div>
+        <a id="toggle_btn" href="javascript:void(0);"
+          ><i class="fa fa-bars"></i
+        ></a>
+        <a id="mobile_btn" class="mobile_btn float-left" href="#sidebar"
+          ><i class="fa fa-bars"></i
+        ></a>
+        <ul class="nav user-menu float-right">
+          <li class="nav-item dropdown has-arrow">
+            <a
+              href="#"
+              class="dropdown-toggle nav-link user-link"
+              data-toggle="dropdown"
+            >
+              <span class="user-img">
+                <img
+                  class="rounded-circle"
+                  src="/img/user.jpg"
+                  width="24"
+                  alt="PREI - User"
+                />
+              </span>
+              <span>Admin</span>
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+          </li>
+        </ul>
+        <div class="dropdown mobile-user-menu float-right">
+          <a
+            href="#"
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            aria-expanded="false"
+            ><i class="fa fa-ellipsis-v"></i
+          ></a>
+          <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-inner slimscroll">
+          <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+              <li class="menu-title">Main</li>
+              <li class="active">
+                <a href="/dashboard"
+                  ><i class="fa fa-dashboard"></i> <span>Dashboard</span></a
+                >
+              </li>
+              <li>
+                <a href="/dashboard/manage-courses"
+                  ><i class="fa fa-user-md"></i> <span>Courses</span></a
+                >
+              </li>
+              <li>
+                <a href="/dashboard/manage-users"
+                  ><i class="fa fa-wheelchair"></i> <span>Users</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="page-wrapper">
+        <div class="content">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+              <div class="dash-widget">
+                <span class="dash-widget-bg1"><i class="fa fa-book"></i></span>
+                <div class="dash-widget-info text-right">
+                  <h3>9</h3>
+                  <span class="widget-title1">Courses</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+              <div class="dash-widget">
+                <span class="dash-widget-bg1"><i class="fa fa-users"></i></span>
+                <div class="dash-widget-info text-right">
+                  <h3>1072</h3>
+                  <span class="widget-title1">Users</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+              <div class="dash-widget">
+                <span class="dash-widget-bg1"><i class="fa fa-user"></i></span>
+                <div class="dash-widget-info text-right">
+                  <h3>72</h3>
+                  <span class="widget-title1">Enrolled</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+              <div class="card">
+                <div class="card-body">
+                  <div class="chart-title">
+                    <h4>Users Total</h4>
+                  </div>
+                  <canvas id="linegraph"></canvas>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+              <div class="card">
+                <div class="card-body">
+                  <div class="chart-title">
+                    <h4>Users Enrolled To A Course</h4>
+                  </div>
+                  <canvas id="bargraph"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-8 col-xl-8">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title d-inline-block">Registered Users</h4>
+                  <a
+                    href="appointments.html"
+                    class="btn btn-primary float-right"
+                    >View all</a
+                  >
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive">
+                    <table class="table mb-0">
+                      <thead class="d-none">
+                        <tr>
+                          <th>User Name</th>
+                          <th>User Email</th>
+                          <th>User Phone</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+
+                        <% for(let i=0; i<users.length; i++) { %> 
+
+                          <tr>
+                            <td style="min-width: 200px">
+                              <h5 class="time-title p-0">Name</h5>
+                              <h2><%= users[i].name %> </h2>
+                            </td>
+                            <td>
+                              <h5 class="time-title p-0">Email</h5>
+                              <p><%= users[i].email %> </p>
+                            </td>
+                            <td>
+                              <h5 class="time-title p-0">Phone</h5>
+                              <p><%= users[i].phone %> </p>
+                            </td>
+                          </tr>
+
+                        <% } %> 
+            
+                
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+              <div class="card member-panel">
+                <div class="card-header bg-white">
+                  <h4 class="card-title mb-0">Courses</h4>
+                </div>
+                <div class="card-body">
+                  <ul class="contact-list">
+
+                    <% if(typeof courses!="undefined") { %> 
+
+                    <% for(let i=0;i<courses.length;i++) { %> 
+                    <li>
+                      <div class="contact-cont">
+                        <div class="float-left user-img m-r-10">
+                          <a href="profile.html" title="Hassan Ali"
+                            ><img
+                              src="/images/course/<%= courses[i].image %> "
+                              alt="PREI - Online Courses"
+                              class="w-40" /><span></span></a>
+                        </div>
+                        <div class="contact-info">
+                          <span class="contact-name text-ellipsis mb-3"><%= courses[i].title %> </span>
+                        </div>
+                      </div>
+                    </li>
+                    <% } %> 
+                    <% } %> 
+
+                  </ul>
+                </div>
+                <div class="card-footer text-center bg-white">
+                  <a href="/dashboard/manage-courses" class="text-muted"
+                    >View all Courses</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-8 col-xl-8">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title d-inline-block">Enrolled Users</h4>
+                  <a
+                    href="/dashboard/manage-users"
+                    class="btn btn-primary float-right"
+                    >View all</a
+                  >
+                </div>
+                <div class="card-block">
+                  <div class="table-responsive">
+                    <table class="table mb-0 new-patient-table">
+                      <tbody>
+
+                        <% if(typeof users!="undefined") { %> 
+                          <% for(let i=0; i<users.length; i++) { %> 
+                            <% if(typeof users[i].enrolledCourses!="undefined" && users[i].enrolledCourses.length!=0) { %> 
+                              <% for(let j=0; j<users[i].enrolledCourses.length; j++) { %>
+
+                            <tr>
+                              <td>
+                                <h5 class="time-title p-0">Student Name</h5>
+                                <h2><%= users[i].name %> </h2>
+                              </td>
+                              <td>
+                                <h5 class="time-title p-0">Course Title</h5>
+                                <%= users[i].enrolledCourses[j].title %>
+                              </td>
+                              <td>
+                                <h5 class="time-title p-0">Course Instructor</h5>
+                                <%= users[i].enrolledCourses[j].instructor %>
+                              </td>
+                            </tr>
+
+                               <% } %> 
+                            <% } %> 
+                          <% } %> 
+                        <% } %> 
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.slimscroll.js"></script>
+    <script src="/js/Chart.bundle.js"></script>
+    <script src="/js/chart.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>

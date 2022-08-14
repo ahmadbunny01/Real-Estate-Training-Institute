@@ -1,0 +1,117 @@
+<%- include('partials/header.ejs') %>
+
+<% if(typeof user != 'undefined') { %>
+
+  <%- include('partials/loginNavbar.ejs')  %> 
+  
+<% } else { %>
+
+  <%- include('partials/navbar.ejs') %> 
+
+<% } %>
+
+<section id="page-banner" class="pt-105 pb-110 bg_cover" data-overlay="8" style="background-image: url('/images/banner.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="page-banner-cont">
+                    <h2>Our Courses</h2>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Courses</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+<section id="courses-part" class="pt-120 pb-120 gray-bg">
+    <div class="container">
+
+        <% if(typeof user.enrolledCourses!="undefined" && user.enrolledCourses.length!=0) { %>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="courses-top-search">
+                    <ul class="nav float-left" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="active" id="courses-grid-tab" data-toggle="tab" href="#courses-grid" role="tab" aria-controls="courses-grid" aria-selected="true"><i class="fa fa-th-large"></i></a>
+                        </li>
+                        <li class="nav-item">Showning 4 0f 24 Results</li>
+                    </ul>
+                    
+                    <div class="courses-search float-right">
+                        <form action="#">
+                            <input type="text" placeholder="Search">
+                            <button type="button"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div> 
+                </div> 
+            </div>
+        </div>
+
+        <% } %> 
+
+        <% if(typeof user.enrolledCourses!="undefined" && user.enrolledCourses.length==0) { %>
+            <div class="row text-center">
+                <div class="col text-center">
+                    <h4 class="text-danger">You Are Not Enrolled In Any Course Yet.</h2>
+                </div>
+            </div>
+        <% } %>
+
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="courses-grid" role="tabpanel" aria-labelledby="courses-grid-tab">
+                <div class="row">
+
+                    <% if(typeof user.enrolledCourses!="undefined") { %>      
+                        <% for(let i=0;i<user.enrolledCourses.length;i++) { %>
+                            <div class="col-lg-4 col-md-6 mt-10">
+                                <div class="singel-course mt-30">
+                                    <div class="thum">
+                                        <div class="image">
+                                            <img src="/images/course/<%= user.enrolledCourses[i].image %> " alt="PREI - Enrolled Courses">
+                                        </div>
+                                        <div class="price">
+                                            <span>Free</span>
+                                        </div>
+                                    </div>
+                                    <div class="cont">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        </ul>
+                                        <span>(20 Reviws)</span>
+                                        <a href="/courses/course/<%= user.enrolledCourses[i].id %>"><h4><%= user.enrolledCourses[i].title %> </h4></a>
+                                        <div class="course-teacher">
+                                            <div class="name">
+                                                <a><h6><%= user.enrolledCourses[i].instructor %> </h6></a>
+                                            </div>
+                                            <div class="admin">
+                                                <ul>
+                                                    <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
+                                                    <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %> 
+                    <% } %>    
+
+                </div>
+
+
+            </div>
+</section>
+
+<%- include('partials/bottombar.ejs') %>
+<%- include('partials/footer.ejs') %>  

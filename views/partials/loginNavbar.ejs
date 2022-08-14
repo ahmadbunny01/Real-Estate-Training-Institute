@@ -1,0 +1,136 @@
+<body>
+  <div class="preloader">
+    <div class="loader rubix-cube">
+      <div class="layer layer-1"></div>
+      <div class="layer layer-2"></div>
+      <div class="layer layer-3 color-1"></div>
+      <div class="layer layer-4"></div>
+      <div class="layer layer-5"></div>
+      <div class="layer layer-6"></div>
+      <div class="layer layer-7"></div>
+      <div class="layer layer-8"></div>
+    </div>
+  </div>
+
+  <header id="header-part">
+    <div class="header-top d-none d-lg-block">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="header-contact text-lg-left text-center">
+              <ul>
+                <li>
+                  <img src="/images/all-icon/email.png" alt="icon" /><span
+                    >info@prei.com</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-logo-support pt-30 pb-30">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-4">
+            <div class="logo">
+              <a href="/">
+                <img src="/images/blue-logo.svg" alt="PREI Logo" />
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-8 col-md-8">
+            <div class="support-button float-right d-none d-md-block">
+              <div class="support float-left">
+                <div class="icon">
+                  <img src="/images/all-icon/support.png" alt="icon" />
+                </div>
+                <div class="cont">
+                  <p>For Inquiry, Contact:</p>
+                  <span>03005025056</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="navigation">
+      <div class="container">
+        <div class="row lg-justify-content-around">
+          <div class="col-lg-10 col-md-10 col-sm-9 col-8">
+            <nav class="navbar navbar-expand-lg">
+              <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <div
+                class="collapse navbar-collapse sub-menu-bar"
+                id="navbarSupportedContent"
+              >
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="<%= navStatusHome %>" class="active" href="/"
+                      >Home</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a class="<%= navStatusAbout %>" href="/about">About us</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="<%= navStatusCourses %>" href="/courses"
+                      >Courses</a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      class="<%= navStatusEnrolledCourses %>"
+                      href="/courses/enrolled-courses"
+                      >Enrolled Courses</a
+                    >
+                  </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <i class="fa fa-user"></i>
+                    <a class="" href="/user-account">Account</a>
+                  </li>
+                  <li class="nav-item">
+                    <i class="fa fa-power-off"></i>
+                    <a href="/logout">Logout</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="search-box">
+    <div class="serach-form">
+      <div class="closebtn">
+        <span></span>
+        <span></span>
+      </div>
+      <form action="#">
+        <input type="text" placeholder="Search by keyword" />
+        <button><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,225 @@
+<%- include('partials/header.ejs') %>
+
+<% if(typeof user != 'undefined') { %>
+
+  <%- include('partials/loginNavbar.ejs')  %> 
+  
+<% } else { %>
+
+  <%- include('partials/navbar.ejs') %> 
+
+<% } %>
+
+<section
+  id="page-banner"
+  class="pt-105 pb-130 bg_cover"
+  data-overlay="8"
+  style="background-image: url('/images/banner.jpg')"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-banner-cont">
+          <h2>Register</h2>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Register
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% if(typeof alert !='undefined' ) { %> <% alert.forEach(error=> { %>
+<div class="alert alert-danger mt-10 text-center" role="alert">
+  <%= error.msg %>
+</div>
+<% }) %>
+<% } %>
+
+ <% if(typeof msg !='undefined') { %>
+<div class="alert alert-success mt-10 text-center" role="alert"><%= msg %></div>
+<% } %>
+
+<% if(typeof passError !='undefined') { %>
+  <div class="alert alert-danger mt-10 text-center" role="alert"><%= error %></div>
+  <% } %>
+
+<section id="contact-page" class="pt-90 pb-120 gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="contact-from">
+          <div class="section-title">
+            <h5>Become A Member</h5>
+          </div>
+
+          <div class="main-form pt-45">
+            <form
+              id="contact-form"
+              action="/register"
+              method="post"
+              data-toggle="validator"
+            >
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="singel-form form-group">
+                    <label for="name" class="form-label">Name *</label>
+                    <input
+                      name="name"
+                      type="text"
+                      data-error="Name is required."
+                      required="required"
+                    />
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="singel-form form-group">
+                    <label for="email" class="form-label">Email *</label>
+                    <input
+                      name="email"
+                      type="email"
+                      data-error="Valid email is required."
+                      required="required"
+                    />
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="singel-form form-group">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input
+                      name="phone"
+                      type="text"
+                      data-error="Phone should be number."
+                    />
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="singel-form">
+                    <label for="province" class="form-label">Province</label>
+                    <select
+                      name="province"
+                      id="province"
+                      class="form-control form-select"
+                    >
+                      <option selected disabled hidden></option>
+                      <option value="Punjab">Punjab</option>
+                      <option value="Sindh">Sindh</option>
+                      <option value="KPK">KPK</option>
+                      <option value="Balochistan">Balochistan</option>
+                      <option value="FATA">FATA</option>
+                      <option value="Gilgit Baltistan">Gilgit Baltistan</option>
+                    </select>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="singel-form form-group">
+                    <label for="city" class="form-label">City *</label>
+                    <input
+                      name="city"
+                      type="text"
+                      required="required"
+                      data-error="City should be Alphabets."
+                    />
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="singel-form form-group">
+                    <label for="dob" class="form-label">Date Of Birth *</label>
+                    <input
+                      name="dob"
+                      type="date"
+                      data-error="DOB should be number."
+                    />
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="singel-form form-group">
+                    <label for="password" class="form-label">Password *</label>
+                    <input
+                      name="password"
+                      type="password"
+                    />
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="singel-form form-group">
+                    <label for="confirmPassword" class="form-label">Confirm Password *</label>
+                    <input
+                      name="confirmPassword"
+                      type="password"
+                    />
+                    <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="singel-form">
+                    <button type="submit" class="main-btn">Register</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="contact-address">
+          <div class="contact-heading">
+            <h5>Contact Info</h5>
+            <p>
+              If you have any further questions, please dont hesitate to contact
+              us.
+            </p>
+          </div>
+          <ul>
+            <li>
+              <div class="singel-address">
+                <div class="icon">
+                  <i class="fa fa-home"></i>
+                </div>
+                <div class="cont">
+                  <p>Office No. 406, Al-Haffeez Heights, Gulberg 3, Lahore.</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="singel-address">
+                <div class="icon">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <div class="cont">
+                  <p>+92 4235712392</p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="singel-address">
+                <div class="icon">
+                  <i class="fa fa-envelope-o"></i>
+                </div>
+                <div class="cont">
+                  <p>info@prei.pk</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/bottombar.ejs') %>
+<%- include('partials/footer.ejs') %>

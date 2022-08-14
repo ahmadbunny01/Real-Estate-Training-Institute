@@ -1,0 +1,207 @@
+<%- include('partials/header.ejs') %>
+
+<% if(typeof user != 'undefined') { %>
+
+  <%- include('partials/loginNavbar.ejs')  %> 
+  
+<% } else { %>
+
+  <%- include('partials/navbar.ejs') %> 
+
+<% } %>
+
+<section
+  id="page-banner"
+  class="pt-105 pb-110 bg_cover"
+  data-overlay="8"
+  style="background-image: url('/images/banner.jpg')"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-banner-cont">
+          <h2><%= course.title %> </h2>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Courses</a></li>
+              <li class="breadcrumb-item active" aria-current="page">
+                <%= course.title %> 
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="corses-singel" class="pt-90 pb-120 gray-bg">
+  <div class="container">
+
+    <% if(typeof msg !='undefined') { %>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="alert alert-success mt-10 text-center" role="alert"><%= msg %></div>
+        </div>
+      </div>
+    <% } %>
+
+    <% if(typeof error !='undefined') { %>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="alert alert-danger mt-10 text-center" role="alert"><%= error %></div>
+        </div>
+      </div>
+    <% } %>
+
+    <% if(typeof errorMsg !='undefined') { %>
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="alert alert-danger mt-10 text-center" role="alert"><%= errorMsg %></div>
+        </div>
+      </div>
+    <% } %>
+
+
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="corses-singel-left mt-30">
+          <div class="title">
+            <h3><%= course.title %> </h3>
+          </div>
+          <div class="course-terms">
+            <ul>
+              <li>
+                <div class="teacher-name">
+                  <div class="name">
+                    <span>Instructor</span>
+                    <h6><%= course.instructor %> </h6>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="course-category">
+                  <span>Category</span>
+                  <h6>Real Estate</h6>
+                </div>
+              </li>
+              <li>
+                <div class="review">
+                  <span>Review</span>
+                  <ul>
+                    <li>
+                      <a href="#"><i class="fa fa-star"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-star"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-star"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-star"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-star"></i></a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="corses-singel-image pt-50">
+            <img src="/images/course/<%= course.image %> " alt="PREI - Course" />
+          </div>
+
+          <div class="corses-tab mt-30">
+            <ul class="nav nav-justified" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a
+                  class="active"
+                  id="overview-tab"
+                  data-toggle="tab"
+                  href="#overview"
+                  role="tab"
+                  aria-controls="overview"
+                  aria-selected="true"
+                  >Overview</a
+                >
+              </li>
+            </ul>
+
+            <div class="tab-content" id="myTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="overview"
+                role="tabpanel"
+                aria-labelledby="overview-tab"
+              >
+                <div class="overview-description">
+                  <div class="singel-description pt-40">
+                    <h6>Course Summary</h6>
+                    <p>
+                      Lorem ipsum gravida nibh vel velit auctor aliquetn
+                      sollicitudirem quibibendum auci elit cons equat ipsutis
+                      sem nibh id elit. Duis sed odio sit amet nibh vulputate
+                      cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam
+                      nec tellus .
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="row">
+          <div class="col-lg-12 col-md-6">
+            <div class="course-features mt-30">
+              <div class="price-button pt-10 text-center">
+                <span>Number Of Students : <b>25</b></span>
+                <span>Price : <b>$25</b></span>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12 col-md-6">
+            <div class="You-makelike mt-30">
+              <h4>You make like</h4>
+              <% if(typeof courses!="undefined") { %>
+                <% for(let i=0;i<courses.length;i++) { %>
+
+                  <div class="singel-makelike mt-20">
+                    <div class="image">
+                      <img src="/images/course/<%= courses[i].image %>" alt="PREI Real Estate Courses" />
+                    </div>
+                    <div class="cont">
+                      <a href="/courses/course/<%= courses[i].id %>"><h4><%= courses[i].title %> </h4></a>
+                      <ul>
+                        <li>
+                          <a href="#"><i class="fa fa-user"></i>31</a>
+                        </li>
+                        <li><%= courses[i].price %> </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                <% } %>    
+              <% } %>    
+            </div>
+            <div class="course-features mt-30">
+              <div class="pt-10 text-center">
+                <form action="/courses/course/<%= course.id %>" method="post">
+                  <button class="main-btn" type="submit">Enroll Now</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/bottombar.ejs') %> 
+<%- include('partials/footer.ejs') %>

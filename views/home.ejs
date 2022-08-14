@@ -1,0 +1,321 @@
+<%- include('partials/header.ejs') %>
+
+<% if(typeof user != 'undefined') { %>
+
+  <%- include('partials/loginNavbar.ejs')  %> 
+  
+<% } else { %>
+
+  <%- include('partials/navbar.ejs') %> 
+
+<% } %> 
+
+<section id="slider-part" class="slider-active">
+  <div
+    class="single-slider bg_cover pt-150"
+    style="background-image: url(/images/slider/s-1.jpg)"
+    data-overlay="4"
+  >
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-7 col-lg-9">
+          <div class="slider-cont">
+            <h1 data-animation="bounceInLeft" data-delay="1s">
+              Become A Licensed Real Estate Agent
+            </h1>
+            <p data-animation="fadeInUp" data-delay="1.3s">
+              You can become a licensed real estate agent by earning a RETI certification.
+            </p>
+            <ul>
+              <li>
+                <a
+                  data-animation="fadeInUp"
+                  data-delay="1.6s"
+                  class="main-btn"
+                  href="/about"
+                  >Read More</a
+                >
+              </li>
+              <li>
+                <a
+                  data-animation="fadeInUp"
+                  data-delay="1.9s"
+                  class="main-btn main-btn-2"
+                  href="/register"
+                  >Get Started</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<section id="category-part">
+  <div class="container">
+    <div class="category pt-40 pb-80">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="category-text pt-40">
+            <h2>Our Specialized Courses & Training Fields</h2>
+          </div>
+        </div>
+        <div
+          class="col-lg-6 offset-lg-1 col-md-8 offset-md-2 col-sm-8 offset-sm-2 col-8 offset-2"
+        >
+          <div class="row category-slied mt-40">
+            <div class="col-lg-4">
+              <a href="#">
+                <span class="singel-category text-center color-1">
+                  <span class="icon">
+                    <img src="/images/all-icon/ctg-1.png" alt="Icon" />
+                  </span>
+                  <span class="cont">
+                    <span>Real Estate Brokerage</span>
+                  </span>
+                </span>
+              </a>
+            </div>
+            <div class="col-lg-4">
+              <a href="#">
+                <span class="singel-category text-center color-2">
+                  <span class="icon">
+                    <img src="/images/all-icon/ctg-2.png" alt="Icon" />
+                  </span>
+                  <span class="cont">
+                    <span>Property Management</span>
+                  </span>
+                </span>
+              </a>
+            </div>
+            <div class="col-lg-4">
+              <a href="#">
+                <span class="singel-category text-center color-3">
+                  <span class="icon">
+                    <img src="/images/all-icon/ctg-3.png" alt="Icon" />
+                  </span>
+                  <span class="cont">
+                    <span>Registration Trustee</span>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about-part" class="pt-65">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="section-title mt-50">
+          <h5>About us</h5>
+          <h2>Welcome To Real Estate Training Institute</h2>
+        </div>
+        <div class="about-cont">
+          <p>
+            RETI is directing the people of real estate retailers toward business growth and their own success stories. Here, we aim to enable industry people towards a professional mindset with the proper licensing of the Real Estate Registration Agency.
+          </p>
+          <a href="/about" class="main-btn mt-55">Learn More</a>
+        </div>
+      </div>
+
+
+      <% if(typeof user=='undefined') { %> 
+
+      <div class="col-lg-6 offset-lg-1">
+        <div class="about-event mt-50">
+          <div class="event-title">
+            <h3>Login Into Your Account</h3>
+          </div>
+
+          <% if(typeof message!='undefined') { %>
+
+            <div class="event-title">
+                <div class="alert alert-danger mt-10 text-center" role="alert"><%= message %></div>
+            </div>
+
+          <% } %>   
+
+          <form id="registration_form" action="/" method="POST">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label"
+                >Email address</label
+              >
+              <input
+                name="email"
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+              />
+              <div class="help-block with-errors"></div>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label"
+                >Password</label
+              >
+              <input
+                name="password"
+                type="password"
+                class="form-control"
+                id="exampleInputPassword1"
+              />
+            </div>
+            <div class="mb-3">
+              <p class="text-center">Do not have an account ? <a href="/register">Sign Up</a></p>
+            </div>
+            <button type="submit" class="main-btn mt-55">Login</button>
+          </form>
+        </div>
+      </div>
+
+      <% } %> 
+
+    </div>
+  </div>
+  <div class="about-bg">
+    <img src="/images/about/bg-1.png" alt="RETI - Real Estate Training Institute" />
+  </div>
+</section>
+
+<section id="category-part" class="mb-5">
+  <div class="container">
+    <div class="category pt-30 pb-60">
+      <div class="row">
+        <div class="offset-lg-1 col-lg-4 align-self-center text-center">
+          <div class="category-text pt-40">
+            <img src="/images/certificate.jpeg" alt="RETI - Online Real Estate Certificate In Pakistan" style="height: 250px;">
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="category-text pt-40">
+            <h2>Complete A Course And Get RETI Certificate.</h2>
+            <p class="mt-2">A RETI certificate will be issued to you, once you complete one of our courses. After you get a certificate, you will become a real estate professional, and apply for a real estate license on RERA (Real Estate Registration Agency).</p>
+          </div>
+        </div>     
+</section>
+
+<section id="course-part" class="pt-115 pb-120 gray-bg">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="section-title pb-45">
+          <h5>Our courses</h5>
+          <h2>Recent courses</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <% if(typeof courses!="undefined") { %>
+          <% for(let i=0;i<courses.length;i++) { %>
+              <div class="col-lg-4 col-md-6 mt-10">
+                  <div class="singel-course mt-30">
+                      <div class="thum">
+                          <div class="image">
+                              <img src="/images/course/<%= courses[i].image %> " alt="RETI - Real Estate Training Institute Courses">
+                          </div>
+                      </div>
+                      <div class="cont">
+                          <ul>
+                              <li><i class="fa fa-star"></i></li>
+                              <li><i class="fa fa-star"></i></li>
+                              <li><i class="fa fa-star"></i></li>
+                              <li><i class="fa fa-star"></i></li>
+                              <li><i class="fa fa-star"></i></li>
+                          </ul>
+                          <span>(20 Reviws)</span>
+                          <a href="/courses/course/<%= courses[i].id %>"><h4><%= courses[i].title %> </h4></a>
+                          <div class="course-teacher">
+                              <div class="name">
+                                  <a><h6><%= courses[i].instructor %> </h6></a>
+                              </div>
+                              <div class="admin">
+                                  <ul>
+                                      <li><a href="#"><i class="fa fa-user"></i><span>31</span></a></li>
+                                      <li><a href="#"><i class="fa fa-heart"></i><span>10</span></a></li>
+                                  </ul>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          <% } %> 
+      <% } %>    
+
+  </div>
+
+  </div>
+</section>
+<section
+  id="video-feature"
+  class="bg_cover pt-60 pb-110"
+  style="background-image: url(/images/home_about_section_image.webp)"
+>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 order-last order-lg-first"></div>
+      <div class="col-lg-5 offset-lg-1 order-first order-lg-last">
+        <div class="feature pt-50">
+          <div class="feature-title">
+            <h3>Our Facilities</h3>
+          </div>
+          <ul>
+            <li>
+              <div class="singel-feature">
+                <div class="icon">
+                  <img src="/images/all-icon/f1.svg" alt="RETI - Certificate" />
+                </div>
+                <div class="cont">
+                  <h4>Globally Certified</h4>
+                  <p>
+                    Real Estate Training Institute (RETI) provides world-class training to the real estate agents and offers them the globally verified licensing of the Real Estate Registration Agency (RERA).
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="singel-feature">
+                <div class="icon">
+                  <img src="/images/all-icon/f2.svg" alt="RETI - Support" />
+                </div>
+                <div class="cont">
+                  <h4>Alumni Support</h4>
+                  <p>
+                    Once you get training with the Real Estate Training Institute, you will become our alumni and get support from our other alumna.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="singel-feature">
+                <div class="icon">
+                  <img src="/images/all-icon/f3.svg" alt="RETI - Books" />
+                </div>
+                <div class="cont">
+                  <h4>Books & Library</h4>
+                  <p>
+                    Real Estate Training Institute helps all the real estate agents with books and notes while providing them with world-class training in the real estate industry.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="feature-bg"></div>
+</section>
+
+<%- include('partials/bottombar.ejs') %>
+<%- include('partials/footer.ejs') %>

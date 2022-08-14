@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <title>PREI - Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/dashboard.css" />
+    <link rel="shortcut icon" href="/images/logo.png" type="image/svg" />
+  </head>
+
+  <body>
+    <div class="main-wrapper account-wrapper">
+      <div class="account-page">
+        <div class="account-center">
+          <div class="account-box">
+            <form
+              action="/dashboard"
+              class="form-signin"
+              method="post"
+            >
+              <div class="account-logo">
+                <a href="/"><img src="/images/logo.png" alt="PREI - Online Real Estate Institute In Pakistan" /></a>
+              </div>
+
+              <% if(typeof message!='undefined') { %>
+
+              <div class="event-title">
+                <div class="alert alert-danger mt-10 text-center" role="alert">
+                  <%= message %>
+                </div>
+              </div>
+
+              <% } %>
+
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" name="email" />
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password" />
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="main-btn">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>

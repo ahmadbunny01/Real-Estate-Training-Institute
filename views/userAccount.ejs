@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=0"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
+    <title>PREI - Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/dashboard.css" />
+  </head>
+
+  <body>
+    <div class="main-wrapper">
+      <div class="page-wrapper">
+        <div class="content">
+
+          <% if(typeof alert !='undefined' ) { %> <% alert.forEach(error=> { %>
+            <div class="row">
+            <div class="col-lg-8 offset-lg-1">
+              <div class="alert alert-danger mt-10 text-center" role="alert">
+                <%= error.msg %>
+              </div>
+            </div>
+          </div>
+            <% }) %>
+            <% } %> 
+          
+          <% if(typeof error!="undefined") { %>
+
+          <div class="row">
+            <div class="col-lg-8 offset-lg-1">
+              <div class="alert alert-danger mt-10 text-center" role="alert">
+                <%= error %>
+              </div>
+            </div>
+          </div>
+
+          <% } %> <% if(typeof msg!="undefined") { %>
+
+          <div class="row">
+            <div class="col-lg-8 offset-lg-1">
+              <div class="alert alert-success mt-10 text-center" role="alert">
+                <%= msg %>
+              </div>
+            </div>
+          </div>
+
+          <% } %>
+
+          <div class="row">
+            <div class="col-lg-8 offset-lg-1">
+              <h4 class="page-title">Account Settings</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-8 offset-lg-1">
+              <form action="/user-account" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Name <span class="text-danger">*</span></label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="name"
+                        value="<%= user.name %>"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Email</label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="email"
+                        value="<%= user.email %>"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label>Phone <span class="text-danger">*</span></label>
+                      <input
+                        class="form-control"
+                        type="text"
+                        name="phone"
+                        value="<%= user.phone %>"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="singel-form">
+                      <label for="province" class="form-label">Province</label>
+                      <select
+                        name="province"
+                        id="province"
+                        class="form-control form-select"
+                      >
+                        <option selected disabled><%= user.province %></option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Sindh">Sindh</option>
+                        <option value="KPK">KPK</option>
+                        <option value="Balochistan">Balochistan</option>
+                        <option value="FATA">FATA</option>
+                        <option value="Gilgit Baltistan">
+                          Gilgit Baltistan
+                        </option>
+                      </select>
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="city" class="form-label">City *</label>
+                      <input
+                        class="form-control"
+                        name="city"
+                        type="text"
+                        required="required"
+                        data-error="City should be Alphabets."
+                        value="<%= user.city %>"
+                      />
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="dob" class="form-label"
+                        >Date Of Birth *</label
+                      >
+                      <input
+                        class="form-control"
+                        name="dob"
+                        type="date"
+                        data-error="DOB should be number."
+                        value="<%= user.dob %>"
+                      />
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="password" class="form-label"
+                        >Password *</label
+                      >
+                      <input
+                        class="form-control"
+                        name="password"
+                        type="password"
+                      />
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="confirmPassword" class="form-label"
+                        >Confirm Password *</label
+                      >
+                      <input
+                        class="form-control"
+                        name="confirmPassword"
+                        type="password"
+                      />
+                      <div class="help-block with-errors"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="m-t-20">
+                  <button
+                    type="submit"
+                    class="btn btn-primary submit-btn float-left"
+                  >
+                    Save Changes
+                  </button>
+                  <a class="btn btn-primary submit-btn float-right" href="/">
+                    Back
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.slimscroll.js"></script>
+    <script src="/js/Chart.bundle.js"></script>
+    <script src="/js/chart.js"></script>
+    <script src="/js/app.js"></script>
+  </body>
+</html>
