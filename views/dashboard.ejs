@@ -6,8 +6,8 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=0"
     />
-    <link rel="shortcut icon" type="image/x-icon" href="/images/logo.png" />
-    <title>PREI - Dashboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/white-logo.png" />
+    <title>RETI - Dashboard</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -22,12 +22,6 @@
       <div class="header">
         <div class="header-left">
           <a href="/dashboard" class="logo">
-            <img
-              src="/images/logo.png"
-              width="35"
-              height="35"
-              alt="PREI - Pakistan Real Estate Institute"
-            />
             <span>Dashboard</span>
           </a>
         </div>
@@ -49,7 +43,7 @@
                   class="rounded-circle"
                   src="/img/user.jpg"
                   width="24"
-                  alt="PREI - User"
+                  alt="User"
                 />
               </span>
               <span>Admin</span>
@@ -79,7 +73,7 @@
               <li class="menu-title">Main</li>
               <li class="active">
                 <a href="/dashboard"
-                  ><i class="fa fa-dashboard"></i> <span>Dashboard</span></a
+                  ><i class="fa fa-dashboard"></i> <span>Stats</span></a
                 >
               </li>
               <li>
@@ -103,7 +97,7 @@
               <div class="dash-widget">
                 <span class="dash-widget-bg1"><i class="fa fa-book"></i></span>
                 <div class="dash-widget-info text-right">
-                  <h3>9</h3>
+                  <h3><%- courses.length %></h3>
                   <span class="widget-title1">Courses</span>
                 </div>
               </div>
@@ -112,17 +106,8 @@
               <div class="dash-widget">
                 <span class="dash-widget-bg1"><i class="fa fa-users"></i></span>
                 <div class="dash-widget-info text-right">
-                  <h3>1072</h3>
+                  <h3><%- users.length %></h3>
                   <span class="widget-title1">Users</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
-              <div class="dash-widget">
-                <span class="dash-widget-bg1"><i class="fa fa-user"></i></span>
-                <div class="dash-widget-info text-right">
-                  <h3>72</h3>
-                  <span class="widget-title1">Enrolled</span>
                 </div>
               </div>
             </div>
@@ -155,7 +140,7 @@
                 <div class="card-header">
                   <h4 class="card-title d-inline-block">Registered Users</h4>
                   <a
-                    href="appointments.html"
+                    href="/dashboard/manage-users"
                     class="btn btn-primary float-right"
                     >View all</a
                   >

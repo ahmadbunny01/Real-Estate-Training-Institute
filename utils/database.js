@@ -1,7 +1,7 @@
 const { Sequelize } = require("sequelize");
 
-const db = new Sequelize("sql8512791", "sql8512791", "5eex3MFuSw", {
-  host: "sql8.freemysqlhosting.net",
+const db = new Sequelize("prei", "root", "", {
+  host: "127.0.0.1",
   port: 3306,
   dialect: "mysql",
 });

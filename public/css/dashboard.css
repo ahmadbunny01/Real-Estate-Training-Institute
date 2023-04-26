@@ -697,13 +697,11 @@ textarea.form-control {
 	align-items: center;
 	display: flex;
 	height: 50px;
-	justify-content: center;
 }
 .logo span {
 	color: #fff;
 	font-size: 18px;
 	font-weight: 500;
-	margin-left: 10px;
 }
 .header .navbar-nav .badge {
 	position: absolute;

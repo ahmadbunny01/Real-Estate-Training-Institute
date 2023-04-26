@@ -131,8 +131,8 @@ router.post("/course/:num", userAuth, async (req, res) => {
             tracker: data.data.token,
             orderId: `${user.id}${course.id}`,
             source: "custom",
-            cancelUrl: `https://prei.pk`,
-            redirectUrl: `https://prei.pk/courses/course/${user.id}/${course.id}/verify-payment`,
+            cancelUrl: `http://localhost:3000`,
+            redirectUrl: `http://localhost:3000/courses/course/${user.id}/${course.id}/verify-payment`,
           });
         })
         .then((url) => {
